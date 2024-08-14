@@ -27,6 +27,8 @@ const [pressed, setPressed] = useState(false);
 const [compImg, setCompImg] = useState(handCM);
 const [comChoice, setComChoice] = useState(0);
 const [play, setPlay] = useState(false);
+const [playerWin, setPlayerWin] = useState(false);
+const [compWin, setCompWin] = useState(false);
 const comp = {
 1: 'rock',
 2: 'paper',
@@ -72,14 +74,18 @@ function handleClick(image, cho){
        else {
         setComScore(comScore + 1);
       }
-      
+      if (userScore > 5){
+        setPlayerWin(true);
+      } else if (comScore > 5){
+        setCompWin(true);
+      }
 
   }, [pressed])
 
 
   return (
     <div className=" items-center">
-      { play && <>
+      { play && !playerWin && !compWin && <>
       <p className=' ml-2 mt-2 text-[1.3rem] sm:text-[2rem] text-[#F4C10E]'>
       USER SCORE: {userScore}
       </p>
@@ -110,6 +116,22 @@ function handleClick(image, cho){
 </button>
 </div>
 }
+
+{playerWin && 
+<div className=' flex h-[100vh] justify-center items-center'>
+  <p className='text-white text-[5rem]'>PLAYER WINS</p>
+<button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setPlayerWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
+  RESET
+</button>
+</div>}
+
+{compWin && 
+<div className=' flex h-[100vh] justify-center items-center'>
+  <p className='text-white text-[5rem]'>COMPUTER WINS</p>
+<button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setCompWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
+  RESET
+</button>
+</div>}
     </div>
   );
 }
