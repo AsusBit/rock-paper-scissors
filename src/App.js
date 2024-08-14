@@ -8,6 +8,7 @@ import handPl from './svg/handltr.svg';
 import handCM from './svg/handrtl.svg';
 import CompLayout from './components/CompLayout';
 import Buttons from './components/Buttons';
+import snippet from './images/snippet.png';
 
 function App() {
    // to get comp's response  
@@ -156,6 +157,7 @@ function handleClick(image, cho){
 </div>
 </div>
 </div>}
+<img className='fixed bottom-3 right-3 w-[10rem] bg' src={snippet}></img>
     </div>
   );
 }
