@@ -67,22 +67,37 @@ function handleClick(image, cho){
         (userChoice === 2 && comChoice === 1) || // paper beats rock
         (userChoice === 3 && comChoice === 2)    // scissors beat paper
       ) {
+
         setUserScore(userScore + 1);
+        if (userScore > 4){
+          setPlayerWin(true);
+        }
       } else if (userChoice > 3){
         // nothing happens (yet)
       }
        else {
         setComScore(comScore + 1);
+        if (comScore > 4){
+          setCompWin(true);
+        }
       }
-      if (userScore > 5){
+      if (userScore > 4){
         setPlayerWin(true);
-      } else if (comScore > 5){
+      } else if (comScore > 4){
         setCompWin(true);
       }
 
   }, [pressed])
 
 
+  useEffect(()=>{
+    if (userScore > 4){
+      const Timeout = setTimeout(()=>{setPlayerWin(true)}, 1000);
+    } else if (comScore > 4){
+      const Timeout = setTimeout(()=>{setCompWin(true)}, 1000);
+    }
+
+  }, [comScore, userScore])
   return (
     <div className=" items-center">
       { play && !playerWin && !compWin && <>
@@ -119,18 +134,27 @@ function handleClick(image, cho){
 
 {playerWin && 
 <div className=' flex h-[100vh] justify-center items-center'>
+<div className=' grid justify-center'>
+
   <p className='text-white text-[5rem]'>PLAYER WINS</p>
+  <div className='flex justify-center items-center'>
 <button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setComChoice(0); setUserChoice(0); setPlayerWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
   RESET
 </button>
+</div>
+</div>
 </div>}
 
 {compWin && 
 <div className=' flex h-[100vh] justify-center items-center'>
+  <div className=' grid justify-center'>
   <p className='text-white text-[5rem]'>COMPUTER WINS</p>
+  <div className='flex justify-center items-center'>
 <button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setComChoice(0); setUserChoice(0); setCompWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
   RESET
 </button>
+</div>
+</div>
 </div>}
     </div>
   );
