@@ -120,7 +120,7 @@ function handleClick(image, cho){
 {playerWin && 
 <div className=' flex h-[100vh] justify-center items-center'>
   <p className='text-white text-[5rem]'>PLAYER WINS</p>
-<button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setPlayerWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
+<button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setComChoice(0); setUserChoice(0); setPlayerWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
   RESET
 </button>
 </div>}
@@ -128,7 +128,7 @@ function handleClick(image, cho){
 {compWin && 
 <div className=' flex h-[100vh] justify-center items-center'>
   <p className='text-white text-[5rem]'>COMPUTER WINS</p>
-<button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setCompWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
+<button onClick={()=>{setComScore(0); setUserScore(0); setImg(handPl); setCompImg(handCM); setComChoice(0); setUserChoice(0); setCompWin(false);}} className='  border-[.2rem] p-3 w-[20rem] border-solid border-black rounded text-[3rem] text-[#F4C10E] from-[#3E2545] bg-gradient-to-tr active:scale-90 ease-in-out duration-100'>
   RESET
 </button>
 </div>}
