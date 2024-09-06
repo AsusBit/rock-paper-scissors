@@ -2,7 +2,7 @@
 
 A simple yet fun Rock Paper Scissors game built using React. Play against an NPC and see if you can reach 5 points before the opponent!
 
-**link: *** [Link Text](https://asusbit.github.io/rock-paper-scissors/)
+**link:** [Press here to play](https://asusbit.github.io/rock-paper-scissors/)
 
 ## How to Play
 
